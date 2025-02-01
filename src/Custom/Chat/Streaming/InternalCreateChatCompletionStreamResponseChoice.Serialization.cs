@@ -81,7 +81,8 @@ internal partial class InternalCreateChatCompletionStreamResponseChoice : IJsonM
             }
             if (property.NameEquals("finish_reason"u8))
             {
-                if (property.Value.ValueKind == JsonValueKind.Null)
+                if (property.Value.ValueKind == JsonValueKind.Null ||
+                    property.Value.GetString() == string.Empty)
                 {
                     finishReason = null;
                     continue;
